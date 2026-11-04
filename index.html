@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Aisha | Software Developer</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Portfolio of Aisha, Software Development student at ROC van Amsterdam, looking for a Software Development internship. Web applications and APIs with PHP, Laravel, Python and JavaScript.">
+  <meta name="author" content="Aisha">
+  <meta name="theme-color" content="#08080c">
+  <meta name="color-scheme" content="dark">
+  <!-- TODO: add your GitHub Pages URL once published, e.g. https://<username>.github.io/ -->
+  <!-- <link rel="canonical" href="https://USERNAME.github.io/"> -->
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aisha | Software Developer">
+  <meta property="og:description" content="Software Development student at ROC van Amsterdam, looking for a Software Development internship.">
+  <!-- TODO: add a 1200x630 preview image at assets/og-image.png, uncomment this
+       and change twitter:card to "summary_large_image" -->
+  <!-- <meta property="og:image" content="assets/og-image.png"> -->
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Flag that JS is available so entrance animations only apply when they can run,
+       and set the saved language early (the text itself is swapped in js/script.js) -->
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("portfolio-language") === "nl") document.documentElement.lang = "nl";
+    } catch (error) { /* storage unavailable: stay in English */ }
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aisha",
+    "jobTitle": "Software Development student",
+    "affiliation": {
+      "@type": "EducationalOrganization",
+      "name": "ROC van Amsterdam"
+    },
+    "award": "Skills Heroes 2026, Webdeveloper preliminary round: 1st place",
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Python", "MySQL", "REST APIs", "Git", "Docker"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- Reusable icons, referenced with <svg class="icon"><use href="#icon-..."></use></svg> -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3.1-.3 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1S18.7.7 16 2.5a13.4 13.4 0 0 0-7 0C6.3.7 5.1 1 5.1 1A5 5 0 0 0 5 4.8a5.4 5.4 0 0 0-1.5 3.7c0 5.4 3.3 6.6 6.4 7A3.4 3.4 0 0 0 9 18.1V22"/>
+    </symbol>
+    <symbol id="icon-trophy" viewBox="0 0 24 24">
+      <path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <path d="M9 6v12M15 6v12"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <path d="M8 5.5v13l10-6.5-10-6.5z"/>
+    </symbol>
+  </svg>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
+      <a class="nav__logo" href="#top" aria-label="Aisha, back to top" data-i18n-attr="aria-label:nav.logo">Aisha<span class="accent">.</span></a>
+
+      <button class="nav__toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a class="nav__link" href="#about" data-i18n="nav.about">About</a></li>
+        <li><a class="nav__link" href="#stack" data-i18n="nav.stack">Tech Stack</a></li>
+        <li><a class="nav__link" href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a class="nav__link" href="#achievements" data-i18n="nav.achievements">Achievements</a></li>
+        <li><a class="nav__link nav__link--cta" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <!-- Language switcher (stays visible above the mobile menu) -->
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
+        <button class="lang-switch__btn" type="button" data-lang="en" lang="en"
+                aria-label="EN, English" aria-pressed="true">EN</button>
+        <button class="lang-switch__btn" type="button" data-lang="nl" lang="nl"
+                aria-label="NL, Nederlands" aria-pressed="false">NL</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow hero__glow--blue"></div>
+        <div class="hero__glow hero__glow--purple"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title reveal" id="hero-title">
+            <span data-i18n="hero.greeting">Hi, I'm Aisha.</span>
+            <span class="hero__subtitle gradient-text">Software Developer</span>
+          </h1>
+          <p class="hero__text reveal" data-i18n="hero.text">
+            I'm a Software Development student passionate about building web
+            applications, APIs and practical software solutions. I enjoy solving
+            problems and turning ideas into working projects.
+          </p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#projects">
+              <span data-i18n="hero.projects">View my projects</span>
+              <svg class="icon btn__icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </a>
+            <a class="btn btn--ghost" href="#contact" data-i18n="hero.contact">Get in touch</a>
+          </div>
+          <a class="hero__highlight reveal" href="#achievements">
+            <svg class="icon" aria-hidden="true"><use href="#icon-trophy"></use></svg>
+            <span data-i18n="hero.highlight"><strong>1st place</strong> · Skills Heroes 2026, Webdeveloper preliminary round</span>
+          </a>
+        </div>
+
+        <!-- Code card: rotates between three snippets (see js/script.js).
+             The code is decorative; the same information is in the page itself. -->
+        <div class="hero__visual reveal">
+          <div class="code-card" id="code-card">
+            <div class="code-card__bar">
+              <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+              <p class="code-card__file" aria-hidden="true">
+                <span class="code-card__file-name is-active">aisha.js</span>
+                <span class="code-card__file-name">projects.js</span>
+                <span class="code-card__file-name">skills-heroes.js</span>
+              </p>
+              <button class="code-card__toggle" type="button" aria-label="Pause code animation">
+                <svg class="icon code-card__icon-pause" aria-hidden="true"><use href="#icon-pause"></use></svg>
+                <svg class="icon code-card__icon-play" aria-hidden="true"><use href="#icon-play"></use></svg>
+              </button>
+            </div>
+            <div class="code-card__body" aria-hidden="true">
+<pre class="code-card__snippet is-active"><code><span class="code-keyword">const</span> <span class="code-variable">aisha</span> = {
+  <span class="code-property">role</span>: <span class="code-string" data-i18n="code.role">"Software Development student"</span>,
+  <span class="code-property">school</span>: <span class="code-string">"ROC van Amsterdam"</span>,
+  <span class="code-property">stack</span>: [
+    <span class="code-string">"PHP"</span>, <span class="code-string">"Laravel"</span>, <span class="code-string">"Python"</span>, <span class="code-string">"JavaScript"</span>
+  ],
+  <span class="code-property">seeking</span>: <span class="code-string" data-i18n="code.seeking">"Software Development internship"</span>,
+};</code></pre>
+<pre class="code-card__snippet"><code><span class="code-keyword">const</span> <span class="code-variable">projects</span> = [
+  <span class="code-string">"A.I. FARID"</span>,     <span class="code-comment">// Next.js + FastAPI</span>
+  <span class="code-string">"TaxFlow"</span>,        <span class="code-comment" data-i18n="code.taxflow">// Laravel web app</span>
+  <span class="code-string">"Music REST API"</span>, <span class="code-comment">// Laravel REST API</span>
+  <span class="code-string">"Geometry Rush"</span>,  <span class="code-comment">// Unity + C#</span>
+];
+
+<span class="code-keyword">export default</span> <span class="code-variable">projects</span>;</code></pre>
+<pre class="code-card__snippet"><code><span class="code-keyword">const</span> <span class="code-variable">skillsHeroes</span> = {
+  <span class="code-property">year</span>: <span class="code-variable">2026</span>,
+  <span class="code-property">category</span>: <span class="code-string">"Webdeveloper"</span>,
+  <span class="code-property">round</span>: <span class="code-string" data-i18n="code.round">"Preliminary round"</span>,
+  <span class="code-property">result</span>: <span class="code-string" data-i18n="code.result">"1st place"</span>,
+  <span class="code-property">format</span>: <span class="code-string" data-i18n="code.format">"Solo, 3 hours"</span>,
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#about" aria-label="Scroll to About section" data-i18n-attr="aria-label:hero.scroll">
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__header reveal-stagger">
+          <h2 class="section__title" id="about-title" data-i18n="about.title">About me</h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p data-i18n="about.p1">
+              I'm Aisha, and I study Software Development at
+              <strong>ROC van Amsterdam</strong>. Most of what I build is for the web.
+              I write the frontend in HTML, CSS and JavaScript, and the backend in
+              PHP with Laravel or in Python.
+            </p>
+            <p data-i18n="about.p2">
+              I've worked with MySQL databases and built REST APIs, and I use Git for
+              version control, both on my own and in a team. I've also used Docker to run
+              projects in a consistent environment.
+            </p>
+            <p data-i18n="about.p3">
+              I'm now looking for a Software Development internship where I can work on
+              real projects, learn from experienced developers and keep getting better at
+              what I do.
+            </p>
+          </div>
+
+          <ul class="about__facts reveal reveal-stagger" aria-label="Quick facts" data-i18n-attr="aria-label:about.facts">
+            <li class="fact">
+              <span class="fact__label" data-i18n="about.studying">Studying</span>
+              <span class="fact__value">Software Development, ROC van Amsterdam</span>
+            </li>
+            <li class="fact">
+              <span class="fact__label" data-i18n="about.lookingFor">Looking for</span>
+              <span class="fact__value" data-i18n="about.lookingForValue">A Software Development internship</span>
+            </li>
+            <li class="fact">
+              <span class="fact__label" data-i18n="about.achievement">Recent achievement</span>
+              <span class="fact__value" data-i18n="about.achievementValue">1st place, Skills Heroes 2026 (Webdeveloper preliminary round)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="section section--alt" id="stack" aria-labelledby="stack-title">
+      <div class="container">
+        <header class="section__header reveal-stagger">
+          <h2 class="section__title" id="stack-title">Tech Stack</h2>
+          <p class="section__intro" data-i18n="stack.intro">The languages, frameworks and tools I've used in my projects.</p>
+        </header>
+
+        <div class="stack-grid">
+          <article class="stack-card reveal">
+            <h3 class="stack-card__title">
+              <span class="stack-card__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </span>
+              Frontend
+            </h3>
+            <ul class="tag-list">
+              <li class="tag">HTML</li>
+              <li class="tag">CSS</li>
+              <li class="tag">JavaScript</li>
+              <li class="tag">Next.js</li>
+            </ul>
+          </article>
+
+          <article class="stack-card reveal">
+            <h3 class="stack-card__title">
+              <span class="stack-card__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg>
+              </span>
+              Backend
+            </h3>
+            <ul class="tag-list">
+              <li class="tag">PHP</li>
+              <li class="tag">Laravel</li>
+              <li class="tag">Python</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">C#</li>
+            </ul>
+          </article>
+
+          <article class="stack-card reveal">
+            <h3 class="stack-card__title">
+              <span class="stack-card__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+              </span>
+              <span data-i18n="stack.data">Database &amp; Tools</span>
+            </h3>
+            <ul class="tag-list">
+              <li class="tag">MySQL</li>
+              <li class="tag">SQLite</li>
+              <li class="tag">Git</li>
+              <li class="tag">GitHub</li>
+              <li class="tag">GitLab</li>
+              <li class="tag">Docker</li>
+            </ul>
+          </article>
+
+          <article class="stack-card reveal">
+            <h3 class="stack-card__title">
+              <span class="stack-card__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3zM3 12l9 4.5 9-4.5M3 16.5 12 21l9-4.5"/></svg>
+              </span>
+              <span data-i18n="stack.extra">Additional Technologies</span>
+            </h3>
+            <ul class="tag-list">
+              <li class="tag">REST APIs</li>
+              <li class="tag">Ollama</li>
+              <li class="tag">Unity</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <!--
+      To add a screenshot: put the image in assets/projects/ and use:
+        <img src="assets/projects/your-image.png" alt="Describe the screenshot" loading="lazy">
+      To add a public GitHub link: add this after the card's tag list:
+        <div class="project-card__links">
+          <a class="link-btn" href="https://github.com/..." target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg> View on GitHub
+          </a>
+        </div>
+      Every visible text also needs a Dutch version in js/translations.js.
+    -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section__header reveal-stagger">
+          <h2 class="section__title" id="projects-title" data-i18n="projects.title">Projects</h2>
+          <p class="section__intro" data-i18n="projects.intro">Web applications, APIs, an AI project and a game.</p>
+        </header>
+
+        <!-- Clicking a smaller card makes it the featured card (see js/script.js) -->
+        <div class="projects-grid">
+
+          <!-- A.I. FARID (featured when the page loads) -->
+          <article class="project-card project-card--featured reveal">
+            <div class="project-card__media project-card__media--screenshot project-card__media--crop-right">
+              <img src="assets/projects/ai-farid.png" width="1830" height="1032" loading="lazy"
+                   data-i18n-attr="alt:farid.alt"
+                   alt="A.I. FARID chat interface with a sidebar of saved chats. The assistant answers three questions about programming languages and Python, including a Python &quot;Hello, World!&quot; code example.">
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__type">
+                <span class="project-card__badge" data-i18n="projects.badge">Featured</span>
+                <span class="project-card__status" data-i18n="farid.status">In development</span>
+                AI · Full-stack
+              </p>
+              <h3 class="project-card__title">
+                <button class="project-card__select" type="button">A.I. FARID<span class="visually-hidden" data-i18n="projects.select"> (show as featured project)</span></button>
+              </h3>
+              <p class="project-card__desc" data-i18n="farid.desc">
+                A full-stack AI application. The frontend is built with Next.js and
+                connects to a Python backend written in FastAPI, which uses Ollama to
+                run language models locally instead of through an external service.
+              </p>
+              <div class="project-card__contribution">
+                <p class="project-card__contribution-label" data-i18n="projects.contribution">My contribution</p>
+                <p data-i18n="farid.contribution">
+                  I am developing this project independently, building the chat interface
+                  with Next.js and connecting it to a Python FastAPI backend. I integrated
+                  Ollama to run AI models locally and implemented chat history and
+                  conversation management.
+                </p>
+              </div>
+              <ul class="tag-list tag-list--sm" aria-label="Technologies used" data-i18n-attr="aria-label:projects.tags">
+                <li class="tag">Next.js</li>
+                <li class="tag">FastAPI</li>
+                <li class="tag">Python</li>
+                <li class="tag">Ollama</li>
+              </ul>
+              <p class="project-card__hint" aria-hidden="true">
+                <span data-i18n="projects.hint">Show as featured</span>
+                <svg class="icon"><use href="#icon-arrow"></use></svg>
+              </p>
+            </div>
+          </article>
+
+          <!-- TaxFlow -->
+          <article class="project-card reveal">
+            <div class="project-card__media project-card__media--screenshot">
+              <img src="assets/projects/taxflow.png" width="1825" height="1032" loading="lazy"
+                   data-i18n-attr="alt:taxflow.alt"
+                   alt="TaxFlow NL homepage in Dutch with the headline &quot;Uw toeslagen overzichtelijk op één plek&quot;, buttons to log in or create an account, and cards for huurtoeslag, zorgtoeslag, kinderopvangtoeslag and personal details.">
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__type">
+                <span class="project-card__badge" data-i18n="projects.badge">Featured</span>
+                <span data-i18n="taxflow.type">School team project · Web application</span>
+              </p>
+              <h3 class="project-card__title">
+                <button class="project-card__select" type="button">TaxFlow<span class="visually-hidden" data-i18n="projects.select"> (show as featured project)</span></button>
+              </h3>
+              <p class="project-card__desc" data-i18n="taxflow.desc">
+                TaxFlow is a Laravel web application for managing Dutch benefit
+                applications (toeslagen). It includes user authentication, application
+                forms and a dashboard. Data is stored in a MySQL database, and the
+                application runs in Docker.
+              </p>
+              <div class="project-card__contribution">
+                <p class="project-card__contribution-label" data-i18n="projects.contribution">My contribution</p>
+                <!-- TODO: add your individual responsibilities -->
+                <p data-i18n="taxflow.contribution">Developed as part of a school team project.</p>
+              </div>
+              <ul class="tag-list tag-list--sm" aria-label="Technologies used" data-i18n-attr="aria-label:projects.tags">
+                <li class="tag">PHP</li>
+                <li class="tag">Laravel</li>
+                <li class="tag">MySQL</li>
+                <li class="tag">Docker</li>
+              </ul>
+              <p class="project-card__hint" aria-hidden="true">
+                <span data-i18n="projects.hint">Show as featured</span>
+                <svg class="icon"><use href="#icon-arrow"></use></svg>
+              </p>
+            </div>
+          </article>
+
+          <!-- Music REST API -->
+          <article class="project-card reveal">
+            <div class="project-card__media project-card__media--screenshot">
+              <div class="api-preview" role="img" data-i18n-attr="aria-label:music.preview"
+                   aria-label="API response viewer with demo data, not a real response from the application: GET /api/artists/1 returns 200 OK with a JSON artist object containing id 1, name Coldplay, country GB and a created_at timestamp.">
+                <div class="api-preview__bar">
+                  <span class="api-preview__request">
+                    <span class="api-preview__method">GET</span> /api/artists/1
+                  </span>
+                  <span class="api-preview__status">200 OK</span>
+                </div>
+                <div class="api-preview__body">
+                  <p class="api-preview__label" data-i18n="music.previewLabel">JSON response · Demo data</p>
+<pre class="api-preview__code"><code>{
+  <span class="code-keyword">"id"</span>: <span class="code-variable">1</span>,
+  <span class="code-keyword">"name"</span>: <span class="code-string">"Coldplay"</span>,
+  <span class="code-keyword">"country"</span>: <span class="code-string">"GB"</span>,
+  <span class="code-keyword">"created_at"</span>: <span class="code-string">"2026-01-15T10:00:00Z"</span>
+}</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__type">
+                <span class="project-card__badge" data-i18n="projects.badge">Featured</span>
+                <span data-i18n="music.type">School team project · Backend</span>
+              </p>
+              <h3 class="project-card__title">
+                <button class="project-card__select" type="button">Music REST API<span class="visually-hidden" data-i18n="projects.select"> (show as featured project)</span></button>
+              </h3>
+              <p class="project-card__desc" data-i18n="music.desc">
+                A REST API for music data, built with Laravel as a school team project
+                for the DevOps Advanced course.
+              </p>
+              <div class="project-card__contribution">
+                <p class="project-card__contribution-label" data-i18n="projects.contribution">My contribution</p>
+                <p data-i18n="music.contribution">
+                  I added timestamps to <code>AlbumResource</code> and
+                  <code>ArtistResource</code>, and worked on the <code>country</code>
+                  field for artists.
+                </p>
+              </div>
+              <ul class="tag-list tag-list--sm" aria-label="Technologies used" data-i18n-attr="aria-label:projects.tags">
+                <li class="tag">Laravel</li>
+                <li class="tag">PHP</li>
+                <li class="tag">REST API</li>
+              </ul>
+              <p class="project-card__hint" aria-hidden="true">
+                <span data-i18n="projects.hint">Show as featured</span>
+                <svg class="icon"><use href="#icon-arrow"></use></svg>
+              </p>
+            </div>
+          </article>
+
+          <!-- Geometry Rush -->
+          <article class="project-card reveal">
+            <div class="project-card__media project-card__media--screenshot">
+              <img src="assets/projects/geometry-rush.png" width="1085" height="548" loading="lazy"
+                   data-i18n-attr="alt:geometry.alt"
+                   alt="Geometry Rush gameplay: a white square player jumps above three red spikes on a white floor, with three red squares at the top left for the player's lives and a green bar at the top of the screen.">
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__type">
+                <span class="project-card__badge" data-i18n="projects.badge">Featured</span>
+                <span data-i18n="geometry.type">Game development</span>
+              </p>
+              <h3 class="project-card__title">
+                <button class="project-card__select" type="button">Geometry Rush<span class="visually-hidden" data-i18n="projects.select"> (show as featured project)</span></button>
+              </h3>
+              <p class="project-card__desc" data-i18n="geometry.desc">
+                A 2D game made in Unity and written in C#. The player moves forward
+                automatically and jumps to avoid obstacles on the way to completing
+                the level.
+              </p>
+              <div class="project-card__contribution">
+                <p class="project-card__contribution-label" data-i18n="projects.contribution">My contribution</p>
+                <p data-i18n="geometry.contribution">
+                  I implemented the gameplay in C#: automatic player movement, jumping,
+                  obstacles, a three-life system with respawning, level completion and
+                  the game UI.
+                </p>
+              </div>
+              <ul class="tag-list tag-list--sm" aria-label="Technologies used" data-i18n-attr="aria-label:projects.tags">
+                <li class="tag">Unity</li>
+                <li class="tag">C#</li>
+              </ul>
+              <p class="project-card__hint" aria-hidden="true">
+                <span data-i18n="projects.hint">Show as featured</span>
+                <svg class="icon"><use href="#icon-arrow"></use></svg>
+              </p>
+            </div>
+          </article>
+
+        </div>
+        <p class="visually-hidden" id="project-announcer" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section section--alt" id="achievements" aria-labelledby="achievements-title">
+      <div class="container">
+        <header class="section__header reveal-stagger">
+          <h2 class="section__title" id="achievements-title" data-i18n="achievements.title">Achievements</h2>
+        </header>
+
+        <article class="achievement reveal">
+          <div class="achievement__badge" aria-hidden="true">
+            <svg class="icon"><use href="#icon-trophy"></use></svg>
+          </div>
+          <div class="achievement__content">
+            <p class="achievement__event">Skills Heroes 2026</p>
+            <h3 class="achievement__title" data-i18n="achievement.title">Winner &mdash; Webdeveloper Preliminary Round</h3>
+            <p class="achievement__desc" data-i18n="achievement.desc">
+              Skills Heroes is the Dutch skills competition for MBO students. In the
+              Webdeveloper preliminary round, I worked on my own for three hours to build a
+              web application with HTML, CSS, JavaScript, PHP and MySQL, and finished first.
+            </p>
+            <dl class="achievement__meta reveal-stagger">
+              <div>
+                <dt data-i18n="achievement.category">Category</dt>
+                <dd>Webdeveloper</dd>
+              </div>
+              <div>
+                <dt data-i18n="achievement.year">Year</dt>
+                <dd>2026</dd>
+              </div>
+              <div>
+                <dt data-i18n="achievement.result">Result</dt>
+                <dd data-i18n="achievement.resultValue">1st place</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__card reveal">
+          <h2 class="contact__title" id="contact-title" data-i18n="contact.title">Looking for a Software Development internship</h2>
+          <p class="contact__text" data-i18n="contact.text">
+            I'm looking for an internship where I can contribute to a real team and keep
+            learning. If you have an internship position available, or would like to know
+            more about my work, I'd be glad to hear from you.
+          </p>
+
+          <div class="contact__actions reveal-stagger">
+            <a class="btn btn--primary" href="mailto:aishaismailfarid@gmail.com" data-i18n="contact.email">Email me</a>
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/aisha-ismail-farid-4b594234b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="btn btn--ghost" href="https://github.com/Aisha789123" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="year">2026</span> Aisha. <span data-i18n="footer.built">Built with HTML, CSS &amp; JavaScript.</span></p>
+      <a class="site-footer__top" href="#top" data-i18n="footer.top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="js/translations.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
