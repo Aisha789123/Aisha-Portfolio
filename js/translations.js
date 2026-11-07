@@ -110,14 +110,20 @@ window.PORTFOLIO_TRANSLATIONS = {
       "menu.close": "Close menu",
       "code.pause": "Pause code animation",
       "code.play": "Play code animation",
-      "projects.announce": "{title} is now the featured project."
+      "projects.announce": "{title} is now the featured project.",
+      "contact.copy": "Copy email",
+      "contact.copied": "Copied!",
+      "contact.copiedAnnounce": "Email address copied to the clipboard."
     },
     nl: {
       "menu.open": "Menu openen",
       "menu.close": "Menu sluiten",
       "code.pause": "Code-animatie pauzeren",
       "code.play": "Code-animatie afspelen",
-      "projects.announce": "{title} is nu het uitgelichte project."
+      "projects.announce": "{title} is nu het uitgelichte project.",
+      "contact.copy": "Kopieer e-mailadres",
+      "contact.copied": "Gekopieerd!",
+      "contact.copiedAnnounce": "E-mailadres gekopieerd naar het klembord."
     }
   }
 };

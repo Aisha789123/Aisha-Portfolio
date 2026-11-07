@@ -76,6 +76,13 @@
     <symbol id="icon-play" viewBox="0 0 24 24">
       <path d="M8 5.5v13l10-6.5-10-6.5z"/>
     </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="12" height="12" rx="2"/>
+      <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
   </svg>
 
   <!-- Header / Navigation -->
@@ -565,6 +572,17 @@
             <a class="btn btn--primary" href="mailto:aishaismailfarid@gmail.com" data-i18n="contact.email">Email me</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/aisha-ismail-farid-4b594234b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="btn btn--ghost" href="https://github.com/Aisha789123" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+
+          <!-- Visible address for visitors without a mail app; the copy button is shown by JS -->
+          <div class="contact__email">
+            <span class="contact__address" id="contact-address">aishaismailfarid@gmail.com</span>
+            <button class="contact__copy" id="copy-email" type="button" hidden>
+              <svg class="icon contact__copy-icon" aria-hidden="true"><use href="#icon-copy"></use></svg>
+              <svg class="icon contact__copy-check" aria-hidden="true"><use href="#icon-check"></use></svg>
+              <span class="contact__copy-label">Copy email</span>
+            </button>
+            <p class="visually-hidden" id="copy-announcer" aria-live="polite"></p>
           </div>
         </div>
       </div>

@@ -1336,6 +1336,67 @@ a.link-btn:hover {
   margin-top: 40px;
 }
 
+.contact__email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  margin-top: 24px;
+}
+
+.contact__address {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.contact__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 4px 14px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: color var(--duration) var(--ease),
+              background-color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease);
+}
+
+.contact__copy[hidden] {
+  display: none;
+}
+
+.contact__copy:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.contact__copy .icon {
+  width: 15px;
+  height: 15px;
+}
+
+.contact__copy-check,
+.contact__copy.is-copied .contact__copy-icon {
+  display: none;
+}
+
+.contact__copy.is-copied .contact__copy-check {
+  display: block;
+}
+
+.contact__copy.is-copied {
+  color: var(--color-success);
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
 .site-footer {
   padding-block: 32px;
   border-top: 1px solid var(--color-border);
@@ -1541,6 +1602,10 @@ a.link-btn:hover {
   .hero__actions .btn,
   .contact__actions .btn {
     width: 100%;
+  }
+
+  .contact__copy {
+    min-height: 40px;
   }
 
   .project-card__body,

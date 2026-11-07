@@ -357,6 +357,67 @@
     updateButtons();
   }
 
+  // Contact: copy the email address and show "Copied!" for a moment
+  function initCopyEmail() {
+    const button = document.getElementById("copy-email");
+    const label = button.querySelector(".contact__copy-label");
+    const address = document.getElementById("contact-address");
+    const announcer = document.getElementById("copy-announcer");
+    let copied = false;
+    let timer;
+
+    const render = () => {
+      label.textContent = t(copied ? "contact.copied" : "contact.copy");
+      button.classList.toggle("is-copied", copied);
+    };
+
+    // Fallback for browsers without the Clipboard API (or pages not on https)
+    const copyWithSelection = (text) => {
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.append(field);
+      field.select();
+      const ok = document.execCommand("copy");
+      field.remove();
+      return ok;
+    };
+
+    const copy = async (text) => {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (error) {
+        if (!copyWithSelection(text)) throw error;
+      }
+    };
+
+    button.addEventListener("click", async () => {
+      try {
+        await copy(address.textContent.trim());
+      } catch (error) {
+        // Copying is blocked: select the address so it can be copied by hand
+        window.getSelection().selectAllChildren(address);
+        return;
+      }
+
+      copied = true;
+      render();
+      announcer.textContent = t("contact.copiedAnnounce");
+
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        copied = false;
+        render();
+        announcer.textContent = "";
+      }, 2000);
+    });
+
+    button.hidden = false;
+    onLanguageChange(render);
+  }
+
   function initYear() {
     document.getElementById("year").textContent = new Date().getFullYear();
   }
@@ -368,5 +429,6 @@
   initCodeCard();
   initReveal();
   initProjects();
+  initCopyEmail();
   initYear();
 })();
