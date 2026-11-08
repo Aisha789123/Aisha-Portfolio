@@ -11,13 +11,15 @@
   --color-border-strong: rgba(255, 255, 255, 0.14);
   --color-text: #ececf3;
   --color-text-muted: #a3a3b8;
-  --color-text-subtle: #75758c;
+  --color-text-subtle: #8e8ea4; /* at least 4.5:1 on every background used */
   --color-blue: #6e8bff;
   --color-purple: #a682ff;
   --color-accent: #8b87ff;
   --color-accent-soft: rgba(139, 135, 255, 0.1);
   --color-success: #4ade80;
   --gradient-accent: linear-gradient(120deg, var(--color-blue), var(--color-purple));
+  /* Slightly deeper version behind white text (buttons, badge): 4.5:1 or more */
+  --gradient-accent-strong: linear-gradient(120deg, #5068e0, #7d58dd);
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -209,7 +211,7 @@ code {
 }
 
 .btn--primary {
-  background: var(--gradient-accent);
+  background: var(--gradient-accent-strong);
   color: #fff;
   box-shadow: 0 8px 30px -10px rgba(139, 135, 255, 0.6);
 }
@@ -865,23 +867,6 @@ a.link-btn:hover {
   object-fit: cover;
 }
 
-.project-card__placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  width: 100%;
-  height: 100%;
-}
-
-.project-card__placeholder {
-  background:
-    radial-gradient(circle at 30% 20%, rgba(110, 139, 255, 0.18), transparent 55%),
-    radial-gradient(circle at 75% 85%, rgba(166, 130, 255, 0.16), transparent 55%),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0 10px, transparent 10px 20px);
-}
-
 /* Real screenshot: full width at its own aspect ratio (nothing cropped),
    with a small dark margin around it. */
 .project-card__media--screenshot {
@@ -896,18 +881,6 @@ a.link-btn:hover {
   height: auto;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-}
-
-.project-card__media > * {
-  transition: transform 0.6s var(--ease);
-}
-
-.project-card:hover .project-card__media > * {
-  transform: scale(1.03);
-}
-
-.project-card:hover .project-card__media--screenshot > * {
-  transform: none;
 }
 
 /* Desktop grid: keep the same 16:9 image area as the other cards so the rows
@@ -1004,26 +977,6 @@ a.link-btn:hover {
   color: var(--color-text-muted);
 }
 
-.project-card__placeholder-icon {
-  display: grid;
-  place-items: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #fff;
-  background: var(--gradient-accent);
-  box-shadow: 0 12px 30px -10px rgba(139, 135, 255, 0.7);
-}
-
-.project-card__placeholder-text {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--color-text-subtle);
-}
-
 .project-card__body {
   display: flex;
   flex-direction: column;
@@ -1047,7 +1000,7 @@ a.link-btn:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #fff;
-  background: var(--gradient-accent);
+  background: var(--gradient-accent-strong);
   border-radius: 999px;
 }
 

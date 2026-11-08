@@ -38,13 +38,13 @@ window.PORTFOLIO_TRANSLATIONS = {
 
     // About
     "about.title": "Over mij",
-    "about.p1": "Ik ben Aisha en ik volg de opleiding Software Development aan het <strong>ROC van Amsterdam</strong>. Ik bouw vooral voor het web: de frontend maak ik met HTML, CSS en JavaScript, de backend met PHP en Laravel of met Python.",
+    "about.p1": "Ik ben Aisha en ik volg de opleiding Software Development aan het <strong>ROC van Amsterdam</strong>. Ik bouw vooral voor het web: de frontend maak ik met HTML, CSS en JavaScript, de backend met PHP en Laravel of met Python. Ik vind het leuk om ideeën om te zetten in werkende applicaties, problemen op te lossen en onderweg nieuwe technologieën te leren.",
     "about.p2": "Ik heb gewerkt met MySQL-databases en REST API's gebouwd, en ik gebruik Git voor versiebeheer, zowel zelfstandig als in teamverband. Daarnaast heb ik Docker gebruikt om projecten in een consistente omgeving te draaien.",
     "about.p3": "Ik ben nu op zoek naar een stage Software Development waarin ik aan echte projecten kan werken, kan leren van ervaren developers en mezelf verder kan ontwikkelen.",
     "about.facts": "Kerngegevens",
     "about.studying": "Opleiding",
     "about.lookingFor": "Op zoek naar",
-    "about.lookingForValue": "Een stage Software Development",
+    "about.lookingForValue": "Stage Software Development &mdash; Vanaf januari 2027",
     "about.achievement": "Recente prestatie",
     "about.achievementValue": "1e plaats, Skills Heroes 2026 (voorronde Webdeveloper)",
 
@@ -69,10 +69,10 @@ window.PORTFOLIO_TRANSLATIONS = {
     "farid.contribution": "Ik ontwikkel dit project zelfstandig. Ik bouw de chatinterface met Next.js en koppel die aan een Python FastAPI-backend. Daarnaast heb ik Ollama geïntegreerd om AI-modellen lokaal te draaien, en heb ik chatgeschiedenis en gespreksbeheer geïmplementeerd.",
 
     // TaxFlow
-    "taxflow.type": "Schoolproject in teamverband&nbsp;· Webapplicatie",
+    "taxflow.type": "Schoolproject in teamverband&nbsp;· Webapplicatie voor toeslagenbeheer",
     "taxflow.alt": "Homepage van TaxFlow NL in het Nederlands met de kop \"Uw toeslagen overzichtelijk op één plek\", knoppen om in te loggen of een account aan te maken, en kaarten voor huurtoeslag, zorgtoeslag, kinderopvangtoeslag en persoonsgegevens.",
-    "taxflow.desc": "TaxFlow is een Laravel-webapplicatie voor het beheren van toeslagaanvragen. De applicatie bevat gebruikersauthenticatie, aanvraagformulieren en een dashboard. Gegevens worden opgeslagen in een MySQL-database en de applicatie draait in Docker.",
-    "taxflow.contribution": "Ontwikkeld als onderdeel van een schoolproject in teamverband.",
+    "taxflow.desc": "Een Laravel-webapplicatie, in teamverband ontwikkeld en geïnspireerd op het toeslagenstelsel van de Nederlandse overheid. Via een gebruiksvriendelijk dashboard kunnen gebruikers nagaan of ze recht hebben op zorgtoeslag, huurtoeslag en kinderopvangtoeslag, en deze toeslagen aanvragen en beheren.",
+    "taxflow.contribution": "Samen met mijn team heb ik actief bijgedragen aan het volledige ontwikkelproces, waaronder frontend- en backendontwikkeling, databaseontwerp, functionele en technische documentatie, testen en samenwerken volgens Scrum.",
 
     // Music REST API
     "music.type": "Schoolproject in teamverband&nbsp;· Backend",

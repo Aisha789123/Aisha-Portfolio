@@ -159,7 +159,7 @@
             const isCurrent = link.getAttribute("href") === `#${entry.target.id}`;
             link.classList.toggle("is-active", isCurrent);
             if (isCurrent) {
-              link.setAttribute("aria-current", "true");
+              link.setAttribute("aria-current", "location");
             } else {
               link.removeAttribute("aria-current");
             }
@@ -422,13 +422,33 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   }
 
-  initLanguage();
-  initHeader();
-  initMobileNav();
-  initActiveLinks();
-  initCodeCard();
-  initReveal();
-  initProjects();
-  initCopyEmail();
-  initYear();
+  // Run each part on its own, so an error in one doesn't stop the others
+  const run = (init) => {
+    try {
+      init();
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+
+  // Content waiting for its entrance animation must never stay hidden
+  if (!run(initReveal)) {
+    document.querySelectorAll(".reveal, .reveal-stagger").forEach((item) => {
+      item.classList.add("is-visible");
+    });
+  }
+  document.documentElement.classList.add("js-ready");
+
+  [
+    initLanguage,
+    initHeader,
+    initMobileNav,
+    initActiveLinks,
+    initCodeCard,
+    initProjects,
+    initCopyEmail,
+    initYear,
+  ].forEach(run);
 })();
