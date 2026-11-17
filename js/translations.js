@@ -1,11 +1,4 @@
-/**
- * Aisha — Portfolio translations
- *
- * English is the text written in index.html. "nl" holds the Dutch version of
- * every element marked with data-i18n (its HTML) or data-i18n-attr (an
- * attribute such as alt or aria-label). "ui" holds text that js/script.js
- * creates itself, in both languages.
- */
+// Dutch texts (English is in index.html). "ui" = texts made by script.js
 window.PORTFOLIO_TRANSLATIONS = {
   nl: {
     // Page & navigation
@@ -22,14 +15,14 @@ window.PORTFOLIO_TRANSLATIONS = {
 
     // Hero
     "hero.greeting": "Hoi, ik ben Aisha.",
-    "hero.text": "Ik ben student Software Development met een passie voor het bouwen van webapplicaties, API's en praktische softwareoplossingen. Ik los graag problemen op en maak van ideeën werkende projecten.",
+    "hero.text": "Ik bouw webapps en API's met PHP, Laravel, Python en JavaScript. Nu werk ik aan A.I. FARID, mijn eigen AI-chatapp, en ik zoek een stage vanaf januari 2027.",
     "hero.projects": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.languages": "Nederlands &amp; Engels",
     "hero.highlight": "<strong>1e plaats</strong> · Skills Heroes 2026, voorronde Webdeveloper",
     "hero.scroll": "Scroll naar Over mij",
 
-    // Hero code card (string values only; code stays English)
+    // Hero code card
     "code.role": "\"Student Software Development\"",
     "code.seeking": "\"Stage Software Development\"",
 
@@ -59,6 +52,8 @@ window.PORTFOLIO_TRANSLATIONS = {
     "projects.badge": "Uitgelicht",
     "projects.contribution": "Mijn bijdrage",
     "projects.tags": "Gebruikte technologieën",
+    "projects.select": " (toon als uitgelicht project)",
+    "projects.hint": "Uitlichten",
 
     // A.I. FARID
     "farid.status": "In ontwikkeling",
@@ -98,14 +93,6 @@ window.PORTFOLIO_TRANSLATIONS = {
     "contact.title": "Op zoek naar een stage Software Development",
     "contact.text": "Ik zoek een stage waarin ik kan meewerken in een echt team en kan blijven leren. Heeft u een stageplek beschikbaar of wilt u meer weten over mijn werk? Dan hoor ik graag van u.",
     "contact.email": "Stuur een e-mail",
-    "contact.bring": "Wat ik meebreng",
-    "contact.bring1": "Full-stack ervaring met Laravel, Python en JavaScript",
-    "contact.bring2": "Ervaring met werken in Scrum-teams met Git",
-    "contact.bring3": "4 jaar werkervaring naast school",
-    "contact.learn": "Wat ik wil leren",
-    "contact.learn1": "Werken in een professioneel developmentteam",
-    "contact.learn2": "Code reviews, testen en nette code",
-    "contact.learn3": "Echte producten bouwen en lanceren",
     "footer.built": "Gebouwd met HTML, CSS &amp; JavaScript.",
     "footer.top": "Terug naar boven &uarr;"
   },

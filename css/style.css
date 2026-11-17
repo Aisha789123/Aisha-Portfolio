@@ -11,15 +11,13 @@
   --color-border-strong: rgba(255, 255, 255, 0.14);
   --color-text: #ececf3;
   --color-text-muted: #a3a3b8;
-  --color-text-subtle: #8e8ea4; /* at least 4.5:1 on every background used */
-  --color-blue: #6e8bff;
-  --color-purple: #a682ff;
-  --color-accent: #8b87ff;
-  --color-accent-soft: rgba(139, 135, 255, 0.1);
+  --color-text-subtle: #8e8ea4;
+  --color-accent: #f5b83d;
+  --color-accent-hover: #f8c862;
+  --color-accent-soft: rgba(245, 184, 61, 0.1);
+  --color-on-accent: #1a1204;
+  --color-glow-warm: #e8833a;
   --color-success: #4ade80;
-  --gradient-accent: linear-gradient(120deg, var(--color-blue), var(--color-purple));
-  /* Slightly deeper version behind white text (buttons, badge): 4.5:1 or more */
-  --gradient-accent-strong: linear-gradient(120deg, #5068e0, #7d58dd);
 
   /* Typography */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -115,7 +113,7 @@ code {
 }
 
 ::selection {
-  background: rgba(139, 135, 255, 0.35);
+  background: rgba(245, 184, 61, 0.35);
   color: #fff;
 }
 
@@ -137,10 +135,7 @@ code {
 }
 
 .gradient-text {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--color-accent);
 }
 
 .visually-hidden {
@@ -211,14 +206,15 @@ code {
 }
 
 .btn--primary {
-  background: var(--gradient-accent-strong);
-  color: #fff;
-  box-shadow: 0 8px 30px -10px rgba(139, 135, 255, 0.6);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: 0 8px 30px -10px rgba(245, 184, 61, 0.6);
 }
 
 .btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px -10px rgba(139, 135, 255, 0.75);
+  background: var(--color-accent-hover);
+  box-shadow: 0 14px 40px -10px rgba(245, 184, 61, 0.75);
 }
 
 .btn--primary:hover .btn__icon {
@@ -255,30 +251,6 @@ code {
   padding: 4px 10px;
   font-size: 0.75rem;
   color: var(--color-text-muted);
-}
-
-.link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 40px;
-  padding: 8px 16px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  border-radius: 999px;
-  border: 1px solid var(--color-border-strong);
-  transition: border-color var(--duration) var(--ease),
-              background-color var(--duration) var(--ease);
-}
-
-.link-btn .icon {
-  width: 16px;
-  height: 16px;
-}
-
-a.link-btn:hover {
-  border-color: var(--color-accent);
-  background: var(--color-accent-soft);
 }
 
 /* Header / navigation ----------------------------------------------------- */
@@ -320,7 +292,7 @@ a.link-btn:hover {
 }
 
 .nav__logo:hover .accent {
-  color: var(--color-blue);
+  color: var(--color-accent-hover);
 }
 
 .nav__menu {
@@ -361,7 +333,7 @@ a.link-btn:hover {
   background: var(--color-accent-soft);
 }
 
-/* EN / NL switcher */
+/* Language switch */
 .lang-switch {
   position: relative;
   z-index: 110;
@@ -394,7 +366,7 @@ a.link-btn:hover {
 .lang-switch__btn[aria-pressed="true"] {
   color: var(--color-text);
   background: var(--color-accent-soft);
-  box-shadow: inset 0 0 0 1px rgba(139, 135, 255, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(245, 184, 61, 0.35);
 }
 
 .nav__toggle {
@@ -466,20 +438,20 @@ a.link-btn:hover {
   height: 560px;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.3;
+  opacity: 0.18;
   animation: float 20s ease-in-out infinite;
 }
 
 .hero__glow--blue {
   top: -160px;
   left: -120px;
-  background: var(--color-blue);
+  background: var(--color-accent);
 }
 
 .hero__glow--purple {
   bottom: -200px;
   right: -140px;
-  background: var(--color-purple);
+  background: var(--color-glow-warm);
   animation-delay: -10s;
 }
 
@@ -576,14 +548,14 @@ a.link-btn:hover {
   transform: none;
 }
 
-/* Gradient border: a padded layer whose content area is masked out */
+/* Gradient border */
 .code-card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(140deg, rgba(110, 139, 255, 0.5), transparent 40%, transparent 60%, rgba(166, 130, 255, 0.5));
+  background: linear-gradient(140deg, rgba(245, 184, 61, 0.5), transparent 40%, transparent 60%, rgba(245, 184, 61, 0.5));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -626,11 +598,10 @@ a.link-btn:hover {
   font: inherit;
 }
 
-.code-keyword  { color: var(--color-purple); }
-.code-variable { color: var(--color-blue); }
+.code-keyword  { color: var(--color-accent); }
+.code-variable { color: var(--color-text); }
 .code-property { color: #e6e6f0; }
 .code-string   { color: #8ee3c5; }
-.code-comment  { color: var(--color-text-subtle); }
 
 .hero__scroll {
   position: absolute;
@@ -658,7 +629,7 @@ a.link-btn:hover {
   left: 0;
   width: 100%;
   height: 50%;
-  background: var(--gradient-accent);
+  background: var(--color-accent);
   animation: scroll-line 2.4s var(--ease) infinite;
 }
 
@@ -786,7 +757,7 @@ a.link-btn:hover {
   border-radius: 10px;
   color: var(--color-accent);
   background: var(--color-accent-soft);
-  border: 1px solid rgba(139, 135, 255, 0.2);
+  border: 1px solid rgba(245, 184, 61, 0.2);
 }
 
 /* Projects ---------------------------------------------------------------- */
@@ -810,13 +781,13 @@ a.link-btn:hover {
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(139, 135, 255, 0.35);
-  box-shadow: 0 30px 60px -30px rgba(110, 139, 255, 0.35);
+  border-color: rgba(245, 184, 61, 0.35);
+  box-shadow: 0 30px 60px -30px rgba(245, 184, 61, 0.35);
 }
 
 .project-card--featured {
   grid-column: 1 / -1;
-  border-color: rgba(139, 135, 255, 0.22);
+  border-color: rgba(245, 184, 61, 0.22);
 }
 
 .project-card__media {
@@ -833,8 +804,7 @@ a.link-btn:hover {
   object-fit: cover;
 }
 
-/* Real screenshot: full width at its own aspect ratio (nothing cropped),
-   with a small dark margin around it. */
+/* Screenshot with a small margin around it */
 .project-card__media--screenshot {
   display: flex;
   align-items: center;
@@ -849,8 +819,7 @@ a.link-btn:hover {
   border: 1px solid var(--color-border);
 }
 
-/* Desktop grid: keep the same 16:9 image area as the other cards so the rows
-   line up, and fit the whole screenshot inside it. */
+/* Desktop: same 16:9 image area on every card */
 @media (min-width: 1025px) {
   .project-card:not(.project-card--featured) .project-card__media--screenshot {
     aspect-ratio: 16 / 9;
@@ -868,8 +837,7 @@ a.link-btn:hover {
   }
 }
 
-/* Music REST API: a static, illustrative JSON preview shaped like a
-   screenshot. Text sizes use cqw so the preview scales like an image. */
+/* Music REST API preview (cqw = scales with its width) */
 .api-preview {
   container-type: inline-size;
   display: flex;
@@ -909,7 +877,7 @@ a.link-btn:hover {
 .api-preview__method {
   color: var(--color-accent);
   background: var(--color-accent-soft);
-  border: 1px solid rgba(139, 135, 255, 0.25);
+  border: 1px solid rgba(245, 184, 61, 0.25);
 }
 
 .api-preview__status {
@@ -965,8 +933,8 @@ a.link-btn:hover {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #fff;
-  background: var(--gradient-accent-strong);
+  color: var(--color-on-accent);
+  background: var(--color-accent);
   border-radius: 999px;
 }
 
@@ -994,7 +962,7 @@ a.link-btn:hover {
   padding: 14px 16px;
   border-left: 2px solid var(--color-accent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: rgba(139, 135, 255, 0.05);
+  background: rgba(245, 184, 61, 0.05);
   font-size: 0.95rem;
 }
 
@@ -1008,14 +976,7 @@ a.link-btn:hover {
   background: rgba(255, 255, 255, 0.06);
 }
 
-.project-card__links {
-  display: flex;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 24px;
-}
-
-/* Featured card: larger text on wider screens */
+/* Featured card: larger text */
 @media (min-width: 640px) {
   .project-card--featured .project-card__body {
     padding: clamp(28px, 4vw, 48px);
@@ -1031,9 +992,7 @@ a.link-btn:hover {
   }
 }
 
-/* Featured card on desktop: screenshot left, text right.
-   The screenshot is shown at a fixed ratio that trims only the empty right
-   edge (anchored to the left), centred vertically in its column. */
+/* Featured card on desktop: screenshot left, text right */
 @media (min-width: 1200px) {
   .project-card--featured {
     display: grid;
@@ -1072,15 +1031,76 @@ a.link-btn:hover {
     margin-block: 14px 16px;
     padding: 12px 14px;
   }
-
-  .project-card--featured .project-card__links {
-    padding-top: 16px;
-  }
 }
 
-/* The "Featured" badge only shows on the featured card */
-.project-card:not(.project-card--featured) .project-card__badge {
+/* Click a small card to make it the featured card (the ::after covers the whole card) */
+.project-card {
+  position: relative;
+}
+
+.project-card__select {
+  padding: 0;
+  text-align: left;
+  line-height: inherit;
+  letter-spacing: inherit;
+  cursor: default;
+}
+
+.js .project-card:not(.project-card--featured) .project-card__select {
+  cursor: pointer;
+}
+
+.js .project-card:not(.project-card--featured) .project-card__select::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius-lg);
+}
+
+.js .project-card:not(.project-card--featured) .project-card__select:focus-visible {
+  outline: none;
+}
+
+.js .project-card:not(.project-card--featured) .project-card__select:focus-visible::after {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.js .project-card:not(.project-card--featured):focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(245, 184, 61, 0.35);
+}
+
+.project-card--featured .project-card__select .visually-hidden {
   display: none;
+}
+
+/* "Show as featured" hint on the small cards */
+.project-card__hint {
+  display: none;
+}
+
+.js .project-card:not(.project-card--featured) .project-card__hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-accent);
+}
+
+.project-card__hint .icon {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration) var(--ease);
+}
+
+.project-card:hover .project-card__hint .icon,
+.project-card:focus-within .project-card__hint .icon {
+  transform: translateX(4px);
 }
 
 /* Achievements ------------------------------------------------------------ */
@@ -1092,8 +1112,8 @@ a.link-btn:hover {
   padding: clamp(28px, 5vw, 56px);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 0% 0%, rgba(110, 139, 255, 0.12), transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(166, 130, 255, 0.12), transparent 50%),
+    radial-gradient(circle at 0% 0%, rgba(245, 184, 61, 0.12), transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(245, 184, 61, 0.12), transparent 50%),
     var(--color-surface);
   border: 1px solid var(--color-border-strong);
 }
@@ -1104,9 +1124,9 @@ a.link-btn:hover {
   width: clamp(72px, 10vw, 104px);
   height: clamp(72px, 10vw, 104px);
   border-radius: 28px;
-  color: #fff;
-  background: var(--gradient-accent);
-  box-shadow: 0 20px 50px -15px rgba(139, 135, 255, 0.7);
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  box-shadow: 0 20px 50px -15px rgba(245, 184, 61, 0.7);
 }
 
 .achievement__badge .icon {
@@ -1162,7 +1182,7 @@ a.link-btn:hover {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-strong);
   background:
-    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(139, 135, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(245, 184, 61, 0.16), transparent 70%),
     var(--color-surface);
 }
 
@@ -1248,47 +1268,6 @@ a.link-btn:hover {
   border-color: rgba(74, 222, 128, 0.4);
 }
 
-/* "What I bring" and "What I want to learn", side by side */
-.contact__lists {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  max-width: 48rem;
-  margin: 48px auto 0;
-  text-align: left;
-}
-
-.contact__list {
-  padding: 24px 26px;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.contact__list-title {
-  margin-bottom: 16px;
-  font-size: 1.1rem;
-}
-
-.check-list {
-  display: grid;
-  gap: 12px;
-  color: var(--color-text-muted);
-}
-
-.check-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.check-list .icon {
-  width: 16px;
-  height: 16px;
-  margin-top: 0.3em;
-  color: var(--color-success);
-}
-
 .site-footer {
   padding-block: 32px;
   border-top: 1px solid var(--color-border);
@@ -1313,9 +1292,7 @@ a.link-btn:hover {
 }
 
 /* Animations -------------------------------------------------------------- */
-/* Elements only start hidden when JS is running (html.js), so content is
-   always visible without JavaScript. An animation is used instead of a
-   transition so it doesn't override the cards' own hover effects. */
+/* Only hidden when JavaScript runs, so the page also works without it */
 .js .reveal {
   opacity: 0;
 }
@@ -1360,6 +1337,7 @@ a.link-btn:hover {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
@@ -1398,7 +1376,7 @@ a.link-btn:hover {
   }
 }
 
-/* Tablet: secondary project cards also place the screenshot beside the text */
+/* Tablet: screenshot next to the text */
 @media (min-width: 640px) and (max-width: 1024px) {
   .project-card:not(.project-card--featured) {
     display: grid;
@@ -1420,8 +1398,7 @@ a.link-btn:hover {
 }
 
 @media (max-width: 768px) {
-  /* backdrop-filter would turn the header into the containing block for the
-     fixed mobile menu, so use a solid background on small screens instead. */
+  /* No blur on mobile, otherwise the menu breaks */
   .site-header.is-scrolled {
     background: rgba(8, 8, 12, 0.94);
     backdrop-filter: none;
@@ -1477,12 +1454,6 @@ a.link-btn:hover {
   }
 }
 
-@media (max-width: 640px) {
-  .contact__lists {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 @media (max-width: 560px) {
   .stack-grid,
   .achievement__meta {
@@ -1504,7 +1475,7 @@ a.link-btn:hover {
   }
 }
 
-/* Very narrow phones: fit the longest code-card line without a scrollbar */
+/* Very small phones */
 @media (max-width: 380px) {
   .code-card__body {
     padding-inline: 14px;

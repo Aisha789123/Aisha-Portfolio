@@ -1,8 +1,4 @@
-/**
- * Aisha — Portfolio
- * Language switch (EN/NL), mobile menu, header on scroll, active menu link,
- * scroll animations, copy email and the footer year. No libraries.
- */
+// Aisha — Portfolio: language, menu, scroll effects, copy email and year
 
 const header = document.getElementById("site-header");
 const navToggle = document.getElementById("nav-toggle");
@@ -20,18 +16,18 @@ const english = {};
 
 /* Language ---------------------------------------------------------------- */
 
-// Text that this script creates itself (button labels), in the current language
+// Text for labels made by this script
 function t(key) {
   return translations.ui[language][key];
 }
 
-// Remember the English text of every element that can be translated
+// Save the English text so we can switch back
 function saveEnglishText() {
   document.querySelectorAll("[data-i18n]").forEach(function (element) {
     english[element.dataset.i18n] = element.innerHTML;
   });
 
-  // data-i18n-attr="alt:farid.alt" translates an attribute instead of the text
+  // data-i18n-attr="alt:farid.alt" translates an attribute
   document.querySelectorAll("[data-i18n-attr]").forEach(function (element) {
     const [attribute, key] = element.dataset.i18nAttr.split(":");
     english[key] = element.getAttribute(attribute);
@@ -79,17 +75,17 @@ function setupLanguage() {
       try {
         localStorage.setItem("portfolio-language", language);
       } catch (error) {
-        // Storage is blocked (e.g. private mode): the choice lasts for this visit
+        // Storage blocked
       }
     });
   });
 
-  // Start in the language chosen on an earlier visit
+  // Use the language from the last visit
   let savedLanguage = "en";
   try {
     savedLanguage = localStorage.getItem("portfolio-language") || "en";
   } catch (error) {
-    // Storage is blocked: stay in English
+    // Storage blocked
   }
   setLanguage(savedLanguage === "nl" ? "nl" : "en");
 }
@@ -115,7 +111,7 @@ function setMenuOpen(open) {
   navMenu.classList.toggle("is-open", open);
   document.body.classList.toggle("nav-open", open);
 
-  // While the menu is open, the page behind it can't be reached with Tab
+  // Page behind the open menu can't be reached with Tab
   document.querySelector("main").inert = open;
   document.querySelector("footer").inert = open;
 
@@ -127,7 +123,7 @@ function setupMenu() {
     setMenuOpen(!isMenuOpen());
   });
 
-  // Clicking a link in the header (menu links and the logo) closes the menu
+  // Clicking a link closes the menu
   header.addEventListener("click", function (event) {
     if (event.target.closest("a")) {
       setMenuOpen(false);
@@ -142,7 +138,7 @@ function setupMenu() {
     }
   });
 
-  // Close the menu when the window becomes wider than a phone
+  // Close the menu on a wider screen
   window.matchMedia("(max-width: 768px)").addEventListener("change", function (event) {
     if (!event.matches) {
       setMenuOpen(false);
@@ -153,7 +149,7 @@ function setupMenu() {
   window.addEventListener("scroll", updateHeader, { passive: true });
 }
 
-// Highlight the menu link of the section in the middle of the screen
+// Highlight the menu link of the current section
 function setupActiveLinks() {
   const observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -179,20 +175,11 @@ function setupActiveLinks() {
 
 /* Scroll animations --------------------------------------------------------- */
 
-// Elements with "reveal" fade in when they scroll into view.
-// The children of a "reveal-stagger" element fade in one after another.
+// Fade elements in when they scroll into view
 function setupReveal() {
   const items = document.querySelectorAll(".reveal, .reveal-stagger");
 
-  // Visitors who prefer less motion see everything straight away
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    items.forEach(function (item) {
-      item.classList.add("is-visible");
-    });
-    return;
-  }
-
-  // Small delay between cards that sit next to each other
+  // Small delay between cards next to each other
   items.forEach(function (item) {
     if (item.classList.contains("reveal")) {
       const siblings = Array.from(item.parentElement.querySelectorAll(":scope > .reveal"));
@@ -222,6 +209,52 @@ function setupReveal() {
 }
 
 
+/* Projects ------------------------------------------------------------------ */
+
+// Click a small project card to show it as the big (featured) project
+function setupProjects() {
+  const grid = document.querySelector(".projects-grid");
+  const badge = document.querySelector(".project-card__badge");
+
+  grid.querySelectorAll(".project-card").forEach(function (card) {
+    card.querySelector(".project-card__select").addEventListener("click", function () {
+      const featured = grid.querySelector(".project-card--featured");
+      if (card === featured) return;
+
+      // Clicked card goes to the top, the old big card takes its place
+      const next = card.nextElementSibling;
+      featured.before(card);
+      if (next) {
+        next.before(featured);
+      } else {
+        grid.append(featured);
+      }
+
+      // Stop the scroll animation from playing again after moving
+      featured.classList.remove("project-card--featured", "reveal");
+      card.classList.remove("reveal");
+      card.classList.add("project-card--featured");
+
+      // The "Featured" label and the disabled button belong to the big card
+      card.querySelector(".project-card__type").prepend(badge);
+      featured.querySelector(".project-card__select").disabled = false;
+      card.querySelector(".project-card__select").disabled = true;
+
+      // Short fade
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        card.animate([{ opacity: 0 }, { opacity: 1 }], 350);
+        featured.animate([{ opacity: 0 }, { opacity: 1 }], 350);
+      }
+
+      // Go to the new big card (also for keyboard users)
+      card.tabIndex = -1;
+      card.focus({ preventScroll: true });
+      card.scrollIntoView();
+    });
+  });
+}
+
+
 /* Copy email ---------------------------------------------------------------- */
 
 function updateCopyLabel() {
@@ -236,7 +269,7 @@ async function copyEmail() {
   try {
     await navigator.clipboard.writeText(emailAddress.textContent.trim());
   } catch (error) {
-    // Copying is not allowed: select the address so it can be copied by hand
+    // Copy not allowed: select the address instead
     window.getSelection().selectAllChildren(emailAddress);
     return;
   }
@@ -255,7 +288,7 @@ async function copyEmail() {
 
 function setupCopyEmail() {
   copyButton.addEventListener("click", copyEmail);
-  copyButton.hidden = false; // The button only works with JavaScript
+  copyButton.hidden = false;
 }
 
 
@@ -265,8 +298,9 @@ setupReveal();
 setupLanguage();
 setupMenu();
 setupActiveLinks();
+setupProjects();
 setupCopyEmail();
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Tells the page that this script ran without errors (see the <head> of index.html)
+// Script ran without errors (see index.html)
 document.documentElement.classList.add("js-ready");
