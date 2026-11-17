@@ -25,42 +25,40 @@ window.PORTFOLIO_TRANSLATIONS = {
     "hero.text": "Ik ben student Software Development met een passie voor het bouwen van webapplicaties, API's en praktische softwareoplossingen. Ik los graag problemen op en maak van ideeën werkende projecten.",
     "hero.projects": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
+    "hero.languages": "Nederlands &amp; Engels",
     "hero.highlight": "<strong>1e plaats</strong> · Skills Heroes 2026, voorronde Webdeveloper",
     "hero.scroll": "Scroll naar Over mij",
 
-    // Hero code card (string values and comments only; code stays English)
+    // Hero code card (string values only; code stays English)
     "code.role": "\"Student Software Development\"",
     "code.seeking": "\"Stage Software Development\"",
-    "code.taxflow": "// Laravel-webapp",
-    "code.round": "\"Voorronde\"",
-    "code.result": "\"1e plaats\"",
-    "code.format": "\"Solo, 3 uur\"",
 
     // About
     "about.title": "Over mij",
     "about.p1": "Ik ben Aisha en ik volg de opleiding Software Development aan het <strong>ROC van Amsterdam</strong>. Ik bouw vooral voor het web: de frontend maak ik met HTML, CSS en JavaScript, de backend met PHP en Laravel of met Python. Ik vind het leuk om ideeën om te zetten in werkende applicaties, problemen op te lossen en onderweg nieuwe technologieën te leren.",
     "about.p2": "Ik heb gewerkt met MySQL-databases en REST API's gebouwd, en ik gebruik Git voor versiebeheer, zowel zelfstandig als in teamverband. Daarnaast heb ik Docker gebruikt om projecten in een consistente omgeving te draaien.",
-    "about.p3": "Ik ben nu op zoek naar een stage Software Development waarin ik aan echte projecten kan werken, kan leren van ervaren developers en mezelf verder kan ontwikkelen.",
+    "about.p3": "Naast school werk ik sinds 2022 bij Albert Heijn. Ik ben nu op zoek naar een stage Software Development waarin ik aan echte projecten kan werken, kan leren van ervaren developers en mezelf verder kan ontwikkelen.",
     "about.facts": "Kerngegevens",
     "about.studying": "Opleiding",
     "about.lookingFor": "Op zoek naar",
     "about.lookingForValue": "Stage Software Development &mdash; Vanaf januari 2027",
     "about.achievement": "Recente prestatie",
     "about.achievementValue": "1e plaats, Skills Heroes 2026 (voorronde Webdeveloper)",
+    "about.work": "Werkervaring",
+    "about.workValue": "Albert Heijn, sinds 2022",
 
     // Tech stack
-    "stack.intro": "De talen, frameworks en tools die ik in mijn projecten heb gebruikt.",
-    "stack.data": "Database &amp; tools",
-    "stack.extra": "Aanvullende technologieën",
+    "stack.intro": "De talen, frameworks en tools die ik heb gebruikt op school, in mijn eigen projecten en bij Skills Heroes.",
+    "stack.languages": "Talen",
+    "stack.game": "Gameontwikkeling",
+    "stack.other": "Overig",
 
     // Projects (shared)
     "projects.title": "Projecten",
     "projects.intro": "Webapplicaties, API's, een AI-project en een game.",
     "projects.badge": "Uitgelicht",
-    "projects.select": " (toon als uitgelicht project)",
     "projects.contribution": "Mijn bijdrage",
     "projects.tags": "Gebruikte technologieën",
-    "projects.hint": "Uitlichten",
 
     // A.I. FARID
     "farid.status": "In ontwikkeling",
@@ -90,7 +88,7 @@ window.PORTFOLIO_TRANSLATIONS = {
     // Achievements
     "achievements.title": "Prestaties",
     "achievement.title": "Winnaar &mdash; Voorronde Webdeveloper",
-    "achievement.desc": "Skills Heroes is de Nederlandse vakwedstrijd voor mbo-studenten. In de voorronde Webdeveloper bouwde ik in drie uur zelfstandig een webapplicatie met HTML, CSS, JavaScript, PHP en MySQL. Daarmee behaalde ik de eerste plaats.",
+    "achievement.desc": "Skills Heroes is de Nederlandse vakwedstrijd voor mbo-studenten. In de voorronde Webdeveloper bouwde ik in drie uur zelfstandig een webapplicatie met HTML, CSS, JavaScript, PHP en MySQL. Daarmee behaalde ik de eerste plaats. Hierna volgt de landelijke kwalificatieronde.",
     "achievement.category": "Categorie",
     "achievement.year": "Jaar",
     "achievement.result": "Resultaat",
@@ -100,6 +98,14 @@ window.PORTFOLIO_TRANSLATIONS = {
     "contact.title": "Op zoek naar een stage Software Development",
     "contact.text": "Ik zoek een stage waarin ik kan meewerken in een echt team en kan blijven leren. Heeft u een stageplek beschikbaar of wilt u meer weten over mijn werk? Dan hoor ik graag van u.",
     "contact.email": "Stuur een e-mail",
+    "contact.bring": "Wat ik meebreng",
+    "contact.bring1": "Full-stack ervaring met Laravel, Python en JavaScript",
+    "contact.bring2": "Ervaring met werken in Scrum-teams met Git",
+    "contact.bring3": "4 jaar werkervaring naast school",
+    "contact.learn": "Wat ik wil leren",
+    "contact.learn1": "Werken in een professioneel developmentteam",
+    "contact.learn2": "Code reviews, testen en nette code",
+    "contact.learn3": "Echte producten bouwen en lanceren",
     "footer.built": "Gebouwd met HTML, CSS &amp; JavaScript.",
     "footer.top": "Terug naar boven &uarr;"
   },
@@ -108,9 +114,6 @@ window.PORTFOLIO_TRANSLATIONS = {
     en: {
       "menu.open": "Open menu",
       "menu.close": "Close menu",
-      "code.pause": "Pause code animation",
-      "code.play": "Play code animation",
-      "projects.announce": "{title} is now the featured project.",
       "contact.copy": "Copy email",
       "contact.copied": "Copied!",
       "contact.copiedAnnounce": "Email address copied to the clipboard."
@@ -118,9 +121,6 @@ window.PORTFOLIO_TRANSLATIONS = {
     nl: {
       "menu.open": "Menu openen",
       "menu.close": "Menu sluiten",
-      "code.pause": "Code-animatie pauzeren",
-      "code.play": "Code-animatie afspelen",
-      "projects.announce": "{title} is nu het uitgelichte project.",
       "contact.copy": "Kopieer e-mailadres",
       "contact.copied": "Gekopieerd!",
       "contact.copiedAnnounce": "E-mailadres gekopieerd naar het klembord."

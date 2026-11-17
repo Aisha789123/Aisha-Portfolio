@@ -515,11 +515,32 @@ a.link-btn:hover {
   margin-top: 40px;
 }
 
+.hero__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 32px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.hero__info li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__info .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-accent);
+}
+
 .hero__highlight {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 36px;
+  margin-top: 20px;
   font-size: 0.88rem;
   color: var(--color-text-muted);
   transition: color var(--duration) var(--ease);
@@ -586,51 +607,13 @@ a.link-btn:hover {
 }
 
 .code-card__file {
-  display: grid;
   margin-left: 10px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--color-text-subtle);
 }
 
-/* Play/pause for the rotating snippets */
-.code-card__toggle {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  margin-left: auto;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-subtle);
-  transition: color var(--duration) var(--ease),
-              border-color var(--duration) var(--ease);
-}
-
-.code-card__toggle:hover {
-  color: var(--color-text);
-  border-color: var(--color-border-strong);
-}
-
-.code-card__toggle .icon {
-  width: 14px;
-  height: 14px;
-}
-
-.code-card__icon-play,
-.code-card__toggle.is-paused .code-card__icon-pause {
-  display: none;
-}
-
-.code-card__toggle.is-paused .code-card__icon-play {
-  display: block;
-}
-
-/* The snippets (and file names) are stacked in one grid cell, so the card is
-   always as tall as the longest snippet and doesn't jump when they change.
-   The outgoing snippet fades out first, then the next one fades in. */
 .code-card__body {
-  display: grid;
   padding: 24px 24px 28px;
   font-family: var(--font-mono);
   font-size: clamp(0.75rem, 1.05vw, 0.86rem);
@@ -639,25 +622,8 @@ a.link-btn:hover {
   overflow-x: auto;
 }
 
-.code-card__snippet,
-.code-card__file-name {
-  grid-area: 1 / 1;
+.code-card__body pre {
   font: inherit;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
-}
-
-.code-card__snippet {
-  transform: translateY(6px);
-}
-
-.code-card__snippet.is-active,
-.code-card__file-name.is-active {
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-  transition: opacity 0.5s var(--ease) 0.3s, transform 0.5s var(--ease) 0.3s, visibility 0s 0.3s;
 }
 
 .code-keyword  { color: var(--color-purple); }
@@ -1112,77 +1078,9 @@ a.link-btn:hover {
   }
 }
 
-/* Project selection: a smaller card can be clicked to become the featured
-   card. The title is a real button whose ::after covers the whole card, so the
-   card is clickable without nesting interactive elements. JS only (html.js). */
-.project-card {
-  position: relative;
-}
-
-.project-card__select {
-  padding: 0;
-  text-align: left;
-  line-height: inherit;
-  letter-spacing: inherit;
-  cursor: default;
-}
-
-.js .project-card:not(.project-card--featured) .project-card__select {
-  cursor: pointer;
-}
-
-.js .project-card:not(.project-card--featured) .project-card__select::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: var(--radius-lg);
-}
-
-.js .project-card:not(.project-card--featured) .project-card__select:focus-visible {
-  outline: none;
-}
-
-.js .project-card:not(.project-card--featured) .project-card__select:focus-visible::after {
-  outline: 2px solid var(--color-accent);
-  outline-offset: -2px;
-}
-
-.js .project-card:not(.project-card--featured):focus-within {
-  transform: translateY(-4px);
-  border-color: rgba(139, 135, 255, 0.35);
-}
-
 /* The "Featured" badge only shows on the featured card */
 .project-card:not(.project-card--featured) .project-card__badge {
   display: none;
-}
-
-/* "Show as featured" hint at the bottom of the smaller cards */
-.project-card__hint {
-  display: none;
-}
-
-.js .project-card:not(.project-card--featured) .project-card__hint {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--color-accent);
-}
-
-.project-card__hint .icon {
-  width: 14px;
-  height: 14px;
-  transition: transform var(--duration) var(--ease);
-}
-
-.project-card:hover .project-card__hint .icon,
-.project-card:focus-within .project-card__hint .icon {
-  transform: translateX(4px);
 }
 
 /* Achievements ------------------------------------------------------------ */
@@ -1350,6 +1248,47 @@ a.link-btn:hover {
   border-color: rgba(74, 222, 128, 0.4);
 }
 
+/* "What I bring" and "What I want to learn", side by side */
+.contact__lists {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 48rem;
+  margin: 48px auto 0;
+  text-align: left;
+}
+
+.contact__list {
+  padding: 24px 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.contact__list-title {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.check-list {
+  display: grid;
+  gap: 12px;
+  color: var(--color-text-muted);
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.check-list .icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 0.3em;
+  color: var(--color-success);
+}
+
 .site-footer {
   padding-block: 32px;
   border-top: 1px solid var(--color-border);
@@ -1432,14 +1371,6 @@ a.link-btn:hover {
 
   .code-card {
     transform: none;
-  }
-
-  .code-card__snippet,
-  .code-card__snippet.is-active,
-  .code-card__file-name,
-  .code-card__file-name.is-active {
-    transform: none;
-    transition: none;
   }
 }
 
@@ -1543,6 +1474,12 @@ a.link-btn:hover {
 
   .hero__scroll {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact__lists {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
