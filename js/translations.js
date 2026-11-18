@@ -15,7 +15,7 @@ window.PORTFOLIO_TRANSLATIONS = {
 
     // Hero
     "hero.greeting": "Hoi, ik ben Aisha.",
-    "hero.text": "Ik bouw webapps en API's met PHP, Laravel, Python en JavaScript. Nu werk ik aan A.I. FARID, mijn eigen AI-chatapp, en ik zoek een stage vanaf januari 2027.",
+    "hero.text": "Ik ben student Software Development met een passie voor het bouwen van webapplicaties, API's en praktische softwareoplossingen. Ik los graag problemen op en maak van ideeën werkende projecten.",
     "hero.projects": "Bekijk mijn projecten",
     "hero.contact": "Neem contact op",
     "hero.languages": "Nederlands &amp; Engels",
